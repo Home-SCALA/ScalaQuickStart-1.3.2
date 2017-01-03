@@ -13,8 +13,7 @@ case class TemperatureAlarm(temp: Double)
 object TemperatureAlarmTest {
 
   def main(args: Array[String]) {
-
-    // 'Case-классы' могут быть созданы без необходимости повторного ключевого слова 'case'
+    /* 'Case-классы' могут быть созданы без необходимости повторного ключевого слова 'case' */
     val alarm = TemperatureAlarm(99.9)
     println(alarm.toString()) /* (метод предоставляемый компилятором) */
     println(alarm.hashCode()) /* (метод предоставляемый компилятором) */
