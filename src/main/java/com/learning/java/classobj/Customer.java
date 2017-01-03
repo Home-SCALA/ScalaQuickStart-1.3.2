@@ -1,11 +1,8 @@
 package com.learning.java.classobj;
 
-// Java way - Create Class and Objects + Defining fields within Class definition
+/* Java: создание класса и объектов + определение поля внутри класса */
 
-// Define class Customer
 public class Customer {
-
-	// Defining fields
 	private String id;
 	private final String name;
 	private final String address;
@@ -32,10 +29,8 @@ public class Customer {
 	}
 
 	public static void main(String[] args) {
-		// Create object of class Customer
 		Customer c1 = new Customer("Tirthal", "Ahmedabad 380054");
 		c1.setId("01");
-		System.out.println(c1.getId() + "-" + c1.getName() + "-" + c1.getAddress());
+		System.out.println( c1.getId() +  " | " + c1.getName() + " | " + c1.getAddress() );
 	}
-
 }

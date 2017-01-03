@@ -1,46 +1,43 @@
 package com.learning.scala.classobj
 
-// Scala way - Create Class and Objects + Defining fields within Class definition
+/* Scala: создание класса и объектов + определение поля внутри класса */
 
-// Java developers to be aware that ---> read next comments...
-
-// Define class Customer + Defining fields name and address using Primary Constructor
+// определение класса-Customer + определение полей 'name' и 'address' с помощью конструктора
 class Customer(val name: String, val address: String) {
   /*
-   * val keyword = instructs scala compiler to create fields and public getter access methods (not creating setter methods).
-   * Question - What if I need to make getter methods private? = Well, just declare val as private, e.g., "private val name: String".
+   * ключевое слово 'val' - говорит SCALA-компилятору создавать поля и методы для доступа к общественному getter-методу (при этом не создавая setter-методов).
+   * Вопрос: что делать если нужно getter-методы сделать 'private'? - просто объявить 'val' как 'private', например:
+   * >   private val name: String
    */
 
-  // Defining field within class definition
-  private var id = ""
+  private var id = "" // Определение поля внутри класса
   /*
-   * var keyword = instructs scala compiler to create field and both getter/setter methods.
-   * By default getter/setter are public, but here private declaration generates private methods.
-   * Creates getter (with name "id") and setter (with name "id_") - scala generated methods naming convention.
+   * ключевое слово 'var' - говорит SCALA-компилятору создавать поле и оба 'getter/setter' метода.
+   * По умолчанию методы 'getter/setter' являются 'public', но здесь 'private' декларация - которая создает 'private' методы.
+   * Создает getter (с именем "ID") и setter (с именем "id_") - методы в Scala сгенерированные согласно правилам конвенции об именовании...
+   *
+   * В заключение что важно знать для определения полей?
+   * #1  'val' ....... неизменное поле - создает только public getter  (эквивалент 'final' переменной в Java)
+   * #2  'var' ....... изменяемом поле - создает public getter и setter
+   * #3  'none' ...... если не объявить с помощью 'val/var', то не создает getter/setter
+   * #4  'private' ... делает любые методы 'private'
    */
-
-  /* --- In summary - what is important to know for defining fields?
-   * (1) val = immutable field - creates public getter only (equivalent of a final variable in Java)
-   * (2) var = mutable field - creates public getter and setter
-   * (3) none = if don't declare using val/var, then does not create getter/setter
-   * (4) private = makes any generated methods private
-   */
-
 }
 
-// Scala compiles this to two files - Customer.class & Customer$.class - one for above class and another for below singleton object
-
-// object keyword = creates singleton object of a class
-// If object name has same name as class, then it is termed as "companion" object and it can access private methods of the class
+/*
+ * Scala компилирует в два файла: - 'Customer.class' (для класса выше) и 'Customer$.class' (для объекта-синглетона)
+ * ключевое слово 'object' - создает одноэлементный объект класса
+ * Если имя объекта имеет такое же имя класса - то это называется 'Компаньон объекта' (companion) и он может получить доступ к закрытым методам класса
+ */
 object Customer {
   def main(args: Array[String]) {
-    val c1 = new Customer("Tirthal", "Ahmedabad 380054")
-    c1.id_=("01") // call setter method
-    c1.id = "01" // Another syntax to set value
+    val customer = new Customer("Tirthal", "Ahmedabad 380054")
+    customer.id_=("01") // вызов setter-метода
+    customer.id = "01" // другой синтаксис для установки значения
 
-    // Uncomment below line to see compile error - because "name" field is declared with "val", so compiler doesn't generate setter method
-    // c1.name = "cannot change"
+    /* Раскомментируйте следующую строку чтобы увидеть ошибку компиляции, потому что поле "name" объявленно как 'val', и поэтому компилятор не сгенерирует setter-метод */
+    // customer.name = "cannot change"
 
-    println(c1.id + "-" + c1.name + "-" + c1.address) // printing values by calling getter methods
+    println( customer.id + " | " + customer.name + " | " + customer.address )
   }
 }
