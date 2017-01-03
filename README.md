@@ -24,3 +24,9 @@
 * **`#5`** `перегрузка (overloaded) конструктора` [com.learning.java.classobj.CashFlow.java](src/main/java/com/learning/java/classobj/CashFlow.java) **|** [com.learning.scala.classobj.CashFlow.scala](src/main/scala/com/learning/scala/classobj/CashFlow.scala)
 * **`#6`** `как использовать 'case-класс' - заставляет Scala-компилятор создавать такие дополнительные методы как: 'hashCode()', 'equals()', 'toString()'` [com.learning.java.classobj.TemperatureAlarm.java](src/main/java/com/learning/java/classobj/TemperatureAlarm.java) **|** [com.learning.scala.classobj.TemperatureAlarm.scala](src/main/scala/com/learning/scala/classobj/TemperatureAlarm.scala)
 
+
+# Урок №2
+
+Аналогия Scala c Java
+---------------------
+
