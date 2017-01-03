@@ -17,7 +17,7 @@
 Аналогия Scala c Java
 ---------------------
 
-* **`#1`** `Приведение типов в 'Scala' автоматически приводит тип переменной, основанной на стоимости, и нет необходимости явно указать компилятор` [com.learning.java.classobj.Abc.java](com.learning.java.classobj.Abc.java) **|** [com.learning.scala.classobj.Abc.scala](com.learning.scala.classobj.Abc.scala)
+* **`#1`** `Приведение типов в 'Scala' автоматически приводит тип переменной, основанной на стоимости, и нет необходимости явно указать компилятор` [com.learning.java.classobj.Abc.java](com.learning.java.classobj.Abc.java) **|** [com.learning.scala.classobj.Abc.scala](src/main/java/com/learning/scala/classobj/Abc.scala)
 * **`#2`** `Нет необходимости чтобы объявить переменную с значением 'привет' как тип String потому-что компилятору просто определяет тип по его значению` [com.learning.java.classobj.Abc.java](com.learning.java.classobj.HelloWorld.java) **|** [com.learning.scala.classobj.Abc.scala](com.learning.scala.classobj.HelloWorld.scala)
 * **`#3`** `Создание класса и объектов + определение поля внутри класса` [com.learning.java.classobj.Abc.java](com.learning.java.classobj.Customer.java) **|** [com.learning.scala.classobj.Abc.scala](com.learning.scala.classobj.Customer.scala)
 * **`#4`** `Как переопределить getter/setter методы с присваиванием полей если требуется добавить собственную логику` [com.learning.java.classobj.Abc.java](com.learning.java.classobj.User.java) **|** [com.learning.scala.classobj.Abc.scala](com.learning.scala.classobj.User.scala)
