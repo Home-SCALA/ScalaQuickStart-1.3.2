@@ -8,3 +8,5 @@
 > [FunctionalProgrammingPrimerZinchuk](FunctionalProgrammingPrimerZinchuk.pdf) (#10)
 >
 > [ProgrammingInScalaEdition](ProgrammingInScalaEdition.pdf) (#118)
+>
+> [bourabai.kz/alg/scala.htm](http://bourabai.kz/alg/scala.htm)

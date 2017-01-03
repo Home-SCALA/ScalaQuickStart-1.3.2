@@ -1,9 +1,8 @@
 package com.learning.java.classobj;
 
-// Java way - Adding custom logic in getter/setter methods of field?
+/* Java: добавление пользовательской логики в getter/setter методы с присваиванием полей? */
 
 public class User {
-
 	private String id;
 
 	public String getId() {
@@ -11,7 +10,7 @@ public class User {
 	}
 
 	public void setId(String id) {
-		// Added custom logic...
+		/* логика: метода-синглтона... */
 		if(this.id==null || this.id.isEmpty())
 			this.id = id;
 	}
