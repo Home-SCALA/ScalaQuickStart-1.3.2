@@ -4,5 +4,7 @@
 * `btn-0.13.7'`
 
 
+
 > [FunctionalProgrammingPrimerZinchuk](FunctionalProgrammingPrimerZinchuk.pdf) (#10)
+>
 > [ProgrammingInScalaEdition](ProgrammingInScalaEdition.pdf) (#118)
