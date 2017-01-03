@@ -1,15 +1,12 @@
 package com.learning.java.classobj;
 
+/* Это Java-класс который будет выглядеть одной строкой в Scala-классе */
 
-/**
- * This is a roughly equivalent class in Java would look something like a single line of case class in Scala 
- * @see <a href="https://github.com/tirthalpatel/Learning-Scala/blob/master/ScalaQuickStart/src/main/scala/com/tirthal/learning/java2scala/scalaway/classobj/TemperatureAlarm.scala">TemperatureAlarm - Scala's Case Class</a>
- */
+
 public class TemperatureAlarm {
+
 	private final double temp;
 
-	// Developer needs to write all below code in Java (most times just as part of language formalities)
-	
 	public TemperatureAlarm(double temp) {
 		this.temp = temp;
 	}
