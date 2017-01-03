@@ -5,4 +5,4 @@
 
 
 > [FunctionalProgrammingPrimerZinchuk](FunctionalProgrammingPrimerZinchuk.pdf) (#10)
-> [Programming in Scala, 2nd edition](Programming in Scala, 2nd edition.pdf) (#118)
+> [ProgrammingInScalaEdition](ProgrammingInScalaEdition.pdf) (#118)
