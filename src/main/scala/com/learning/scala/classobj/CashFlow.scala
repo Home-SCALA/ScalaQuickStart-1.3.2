@@ -1,6 +1,6 @@
 package com.learning.scala.classobj
 
-// Scala way - Primary and Auxiliary constructors
+/* Scala: первичные и вспомогательные конструкторы */
 
 // class having a primary constructor that defines the parameters for the class
 class CashFlow(amt: Double, curr: String) { // primary two-argument constructor
@@ -17,10 +17,9 @@ class CashFlow(amt: Double, curr: String) { // primary two-argument constructor
 // Try it
 object CashFlow {
   def main(args: Array[String]) {
-    
     val cf = new CashFlow(500.0)
-    println("Amount=" + cf.amount)
-    println("Currency=" + cf.currency)
-    
+
+    println( "Amount = " + cf.amount )
+    println( "Currency: " + cf.currency )
   }
 }
