@@ -1,23 +1,23 @@
 package com.learning.java.controlstruct;
 
-// Syntax of conditional control structures in Java
+/* Java: cинтаксис условных конструкций */
+
+
 public class ConditionalsSyntax {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		
-		// (1) ---> if:then - it's a statement in Java, which means it carries out an action
+		/* (#1)  if:then - выполняется условное действие в зависимости от состояния */
 		if (args.length==0)
-			System.out.println("Arguments are null");
+			System.out.println("#1: Arguments are null");
 		else
-			System.out.println("Arguments are not null");
+			System.out.println("#1: Arguments are not null");
 		
-		// (2) ---> Ternary (?:) - is an expressions in Java, which means it returns a value
-		System.out.println(args.length==0 ? "Arguments are null" : "Arguments are not null");
+		/* (#2)  ?: - более короткая форма выражения условного действия (if:then) */
+		System.out.println(args.length==0 ? "#2: Arguments are null" : "#2: Arguments are not null");
 		
-		// (3) ---> Switch statement in Java - can match only primitives, enums, strings
+		/* (#3) switch:case - список состояний для условный */
 		String day = "Monday";
-		String dayType = "???"; 
+		String dayType = "???"; // (текущий день недели..)
 		switch(day) {
 			case "Monday":
 			case "Tuesday":
@@ -34,7 +34,6 @@ public class ConditionalsSyntax {
 				dayType = "unknown";
 				break;
 		}
-		System.out.println(day + " is " + dayType);
-		
+		System.out.println("#3: " + day + " is " + dayType);
 	}
 }

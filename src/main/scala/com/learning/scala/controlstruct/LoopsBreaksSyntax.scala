@@ -1,28 +1,32 @@
 package com.learning.scala.controlstruct
 
-// Syntax of loops and breaks control structures in Scala
+/* Scala: cинтаксис цыклов и управления прохождения по цыклу */
+
+
 object LoopsBreaksSyntax {
 
   def main(args: Array[String]) {
-    
-    // (1) ---> while loop
+    println("################")
+    /* (#1)  while */
     var i: Int = 0
     while (i < 3) {
       println(i)
-      i += 1 // there is no i++ operator in scala
-    } 
-    
-    // (2) ---> Scala has for comprehension (instead of for loop)
-    for(i <- 0 to i) { // "<-" indicates a generator to feed value into the iterator
+      i += 1 // ( в Scala отсутствует оператор: ++ )
+    }
+
+    println("\n################")
+    /* (#2.1)  for */
+    for(i <- 0 to i) { /* <-  указывает на генератор чтобы увеличить значение в итераторе */
       println(i)
     }
-    
-    // for each
-    (0 to 3).foreach(i => println(i)) // Alternate syntax of using Scala's shorthand = (0 to 3).foreach(println(_))
-    
-    // (3) ---> Scala has break() API instead of break statement
-    // Scala has no break/continue statements, because it generally discourages to breaking of loops
-    import scala.util.control.Breaks._ // Scala allows to import within method block also
+
+    println("\n################")
+    /* (#2.2)  for:each */
+    (0 to 3).foreach(i => println(i)) /* альтернативный синтаксис использования в Scala:  (0 to 3).foreach(println(_) */
+
+    println("\n################")
+    /* (#3)  for:break */
+    import scala.util.control.Breaks._ // ( также Scala позволяет делать import внутри метода или блока )
     breakable {
       for(k <- 0 to 10) {
         println(k)

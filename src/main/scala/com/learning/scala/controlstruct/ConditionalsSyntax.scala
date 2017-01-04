@@ -1,26 +1,25 @@
 package com.learning.scala.controlstruct
 
-// Syntax of conditional control structures in Scala
+/* Scala: cинтаксис условных конструкций */
+
+
 object ConditionalsSyntax { 
   
   def main(args: Array[String]) {
+    /* (#1)  if:then - возвращает условное значение в зависимости от состояния = условные выражения в Scala эквивалентно (?:) */
+    println( if(args.length==0) "#1: Arguments are null" else "#1: Arguments are not null" )
     
-    // (1) ---> if:then - it's an expression in Scala, which means it returns a value
-    println(if(args.length==0) "Arguments are null" else "Arguments are not null")
-    
-    // (2) ---> Scala has no ternary (?:), because Scala ifs expression is equivalent to ternary
-    // In face anything in Scala is an expression, even { ... } can return something
-   
-    // (3) ---> Scala has no Switch statement, instead it uses Match Expressions / Pattern Matching - It can match anything including even objects
+    /* (#2)  ?: */
+    /* даже любое тело в Scala является выражением {...} и может вернуть что-то */
+
+    /* (#3)  match:case - Scala не имеет никакого (switch:case) вместо этого она использует выражения 'Match / Pattern Matching' */
     val day = "Monday"
-    println(day + " is " + 
+    println("#3: " + day + " is " +
       (day match {
         case "Monday" | "Tuesday" | "Wednesday" | "Thurday" | "Friday" => "working day"
         case "Saturday" | "Sunday" => "holiday"
         case _ => "unknown"
       })
     )
-
   }
-  
 }

@@ -30,4 +30,5 @@
 Аналогия Scala c Java (controlstruct)
 ---------------------
 
-* **`#1`** `` [com.learning.java.controlstruct.ConditionalsSyntax.java](src/main/java/com/learning/java/controlstruct/ConditionalsSyntax.java) **|** [com.learning.scala.controlstruct.ConditionalsSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ConditionalsSyntax.scala)
+* **`#1`** `cинтаксис условных конструкций` [com.learning.java.controlstruct.ConditionalsSyntax.java](src/main/java/com/learning/java/controlstruct/ConditionalsSyntax.java) **|** [com.learning.scala.controlstruct.ConditionalsSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ConditionalsSyntax.scala)
+* **`#2`** `cинтаксис цыклов и управления прохождения по цыклу` [com.learning.java.controlstruct.LoopsBreaksSyntax.java](src/main/java/com/learning/java/controlstruct/LoopsBreaksSyntax.java) **|** [com.learning.scala.controlstruct.LoopsBreaksSyntax.scala](src/main/scala/com/learning/scala/controlstruct/LoopsBreaksSyntax.scala)
