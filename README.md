@@ -9,7 +9,7 @@
 >
 > [ProgrammingInScalaEdition](ProgrammingInScalaEdition.pdf) (#118)
 >
-> [Язык программирования Scala](http://bourabai.kz/alg/scala.htm)
+> [Язык программирования Scala](http://bourabai.kz/alg/scala.htm) **(** [pdf](scala.pdf) **)**
 
 
 # Урок №1
