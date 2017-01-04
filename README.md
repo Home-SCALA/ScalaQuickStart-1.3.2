@@ -9,12 +9,12 @@
 >
 > [ProgrammingInScalaEdition](ProgrammingInScalaEdition.pdf) (#118)
 >
-> [bourabai.kz/alg/scala.htm](http://bourabai.kz/alg/scala.htm)
+> [Язык программирования Scala](http://bourabai.kz/alg/scala.htm)
 
 
 # Урок №1
 
-Аналогия Scala c Java
+Аналогия Scala c Java ( classobj )
 ---------------------
 
 * **`#1`** `Приведение типов в 'Scala' автоматически приводит тип переменной, основанной на стоимости, и нет необходимости явно указать компилятор` [com.learning.java.classobj.Abc.java](src/main/java/com/learning/java/classobj/Abc.java) **|** [com.learning.scala.classobj.Abc.scala](src/main/scala/com/learning/scala/classobj/Abc.scala)
@@ -27,6 +27,7 @@
 
 # Урок №2
 
-Аналогия Scala c Java
+Аналогия Scala c Java (controlstruct)
 ---------------------
 
+* **`#1`** `` [com.learning.java.controlstruct.ConditionalsSyntax.java](src/main/java/com/learning/java/controlstruct/ConditionalsSyntax.java) **|** [com.learning.scala.controlstruct.ConditionalsSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ConditionalsSyntax.scala)
