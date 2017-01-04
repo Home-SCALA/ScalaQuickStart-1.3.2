@@ -1,38 +1,34 @@
 package com.learning.scala.functional
 
-// Introduction of Functional Programming in Scala
+/*
+ * Scala: введение в функциональное программирование
+ *
+ * Сложности функционального программирования:
+ * (#1) Функции выполняют операции со значениями, как и в процедурных языках, но вместо того, чтобы изменять их входы, функции рассматриваются как действующие как математические функции и возвращать новые значения.
+ *      Короче говоря, функции рассматриваются как мало машин для обработки, которые принимают в значениях и выходных новых значений.
+ *
+ * (#2) Первоклассные функции - ключевое понятие функционального программирования, что функции должны быть значения, которые могут быть введены в переменные.
+ *      Это означает, что функции могут быть введены в переменные, передаваемые методам, и манипулировать таким же образом, как любое другое значение.
+ */
+
 
 object IntroToFunctional extends App {
-
-  /* 
-   * Crux of Functional Programming:
-   * 
-   * (1) Functions operate on values, as in procedural languages, but instead of altering their inputs, functions are seen as acting like mathematical functions and return new values.
-   *     In short, functions are seen as �little processing machines� that take in values and output new values.
-   *     
-   * (2) First-class functions - the key concept of functional programming that functions should be values that can be put into variables.   
-   *     This means that functions can be put into variables, passed to methods, and manipulated in the same ways as any other value.
-   */
-
   /*
-   * Scala supports functions as first-class values. This means that the language allows you to write functions in a way that can be put into
-   * vars or vals and treated as any other value. These are called function literals (or anonymous functions).
-   * 
-   * The key piece of syntax is the arrow, =>, which Scala uses to express taking in the list of parameters and passing them to a block of code:
-   * 
-   * (<list of function parameters>) => { ... function body as a block ... }
-   * 
-   * For example,
+   * Scala поддерживает функции как значения первого класса. Это означает, что язык позволяет писать функции таким образом, который может быть введен в 'var(ы)' или 'val(ы)' и рассматриваться как любое другое значение. Они называются функциональные литералы (или анонимные функции).
+   * '=>' - (ключевая часть синтаксиса) используется в Scala-выражениях принятия параметров в списке и передачи их в блок кода:
+   *      (<list of function parameters>) => { ... function body as a block ... }
+   * Пример №1 - функция принимает одно значение, обрабатывает его и возвращает другое значение:
    */
-  
-   // Function takes in value and return new value
-   val doubler = (x : Int) => { 2 * x }  
-   
+   val doubler = (x : Int) => { 2 * x }
    println("Double of 2 is: " + doubler(2))
    println("Double of 4 is: " + doubler(4))
-   
-   // Define a function literal - a function making function 
-   val adder = (n : Int) => { (x : Int) => n + x } // a function literal that takes in a value and returns a new function as a value
+
+
+   /*
+    * Пример №2 - определение функционального литерала - функция формирующая функцию..:
+    * ( функциональный литерал принимает одно значение и возвращает другую функцию в качестве значения )
+    */
+   val adder = (n : Int) => { (x : Int) => n + x }
    
    val plus2 = adder(2)
    println("2 + 5 = " + plus2(5))

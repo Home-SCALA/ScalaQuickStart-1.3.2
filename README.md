@@ -42,3 +42,12 @@ Scala - коллекции (collection)
 
 * **`#1`** `коллекции (List)` [com.learning.scala.collection.ListExamples.scala](src/main/scala/com/learning/scala/collection/ListExamples.scala)
 * **`#2`** `коллекции (Map)` [com.learning.scala.collection.MapExamples.scala](src/main/scala/com/learning/scala/collection/MapExamples.scala)
+
+
+# Урок №4
+
+Scala - функциональное программирование (functional)
+---------------------------------------
+
+* **`#1`** `введение в функциональное программирование` [com.learning.scala.functional.IntroToFunctional.scala](src/main/scala/com/learning/scala/functional/IntroToFunctional.scala)
+
