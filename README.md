@@ -33,3 +33,12 @@
 * **`#1`** `cинтаксис условных конструкций` [com.learning.java.controlstruct.ConditionalsSyntax.java](src/main/java/com/learning/java/controlstruct/ConditionalsSyntax.java) **|** [com.learning.scala.controlstruct.ConditionalsSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ConditionalsSyntax.scala)
 * **`#2`** `cинтаксис цыклов и управления прохождения по цыклу` [com.learning.java.controlstruct.LoopsBreaksSyntax.java](src/main/java/com/learning/java/controlstruct/LoopsBreaksSyntax.java) **|** [com.learning.scala.controlstruct.LoopsBreaksSyntax.scala](src/main/scala/com/learning/scala/controlstruct/LoopsBreaksSyntax.scala)
 * **`#3`** `Исключения (Exception)` [com.learning.java.controlstruct.ExceptionSyntax.java](src/main/java/com/learning/java/controlstruct/ExceptionSyntax.java) **|** [com.learning.scala.controlstruct.ExceptionSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ExceptionSyntax.scala)
+
+
+# Урок №3
+
+Scala - коллекции (collection)
+-----------------
+
+* **`#1`** `коллекции (List)` [com.learning.scala.collection.ListExamples.scala](src/main/scala/com/learning/scala/collection/ListExamples.scala)
+* **`#2`** `коллекции (Map)` [com.learning.scala.collection.MapExamples.scala](src/main/scala/com/learning/scala/collection/MapExamples.scala)
