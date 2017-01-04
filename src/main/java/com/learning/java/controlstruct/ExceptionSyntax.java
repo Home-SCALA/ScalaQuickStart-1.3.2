@@ -6,27 +6,26 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-// Syntax of exception handling control structures in Java
+/* Java: Исключения (Exception) */
+
+
 public class ExceptionSyntax {
+
 	public static void main(String[] args) {
-		
-		// If you uncomment below line, compiler forces to handle checked exception "Unhandled exception type MalformedURLException"
-		// URL url = new URL("http://tirthalpatel.blogspot.com");
-		
-		// try-catch-finally block
+		/* try-catch-finally */
 		try {
-			URL u = new URL("http://tirthalpatel.blogspot.com");
-			BufferedReader r = new BufferedReader(new InputStreamReader(u.openStream()));
+			URL url = new URL( "http://tirthalpatel.blogspot.com" );
+			BufferedReader buffered = new BufferedReader( new InputStreamReader(url.openStream()) );
 			try {
-				String l;
-				while((l = r.readLine()) != null)
-					System.out.println(l);
+				String line;
+				while((line = buffered.readLine()) != null)
+					System.out.println( line );
 			} finally {
-				r.close();
+                buffered.close();
 			}
-		} catch(MalformedURLException e) {  // Compiler forces to catch checked exception
+		} catch(MalformedURLException e) {  // ( ловим специальное исключение.. )
 			System.out.println("Bad URL");
-		} catch (IOException e) {	// Compiler forces to catch checked exception
+		} catch (IOException e) {  // ( ловим общее исключение.. )
 			System.out.println("Problem in reading data: " + e.getMessage());
 		}
 	}

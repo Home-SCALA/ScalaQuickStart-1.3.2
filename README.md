@@ -32,3 +32,4 @@
 
 * **`#1`** `cинтаксис условных конструкций` [com.learning.java.controlstruct.ConditionalsSyntax.java](src/main/java/com/learning/java/controlstruct/ConditionalsSyntax.java) **|** [com.learning.scala.controlstruct.ConditionalsSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ConditionalsSyntax.scala)
 * **`#2`** `cинтаксис цыклов и управления прохождения по цыклу` [com.learning.java.controlstruct.LoopsBreaksSyntax.java](src/main/java/com/learning/java/controlstruct/LoopsBreaksSyntax.java) **|** [com.learning.scala.controlstruct.LoopsBreaksSyntax.scala](src/main/scala/com/learning/scala/controlstruct/LoopsBreaksSyntax.scala)
+* **`#3`** `Исключения (Exception)` [com.learning.java.controlstruct.ExceptionSyntax.java](src/main/java/com/learning/java/controlstruct/ExceptionSyntax.java) **|** [com.learning.scala.controlstruct.ExceptionSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ExceptionSyntax.scala)
