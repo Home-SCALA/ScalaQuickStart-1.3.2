@@ -4,16 +4,22 @@ object Main1 {
 
   // Пример №1:
   class Aaa {
+
     var name: String = null
     var age: Integer = 0
+
     def getName() = name
     def getAge() = age
+
     override def toString = "Aaa(" + name + "," + age + ")"
+
   }
 
   // Пример №2:
   class Bbb(val name: String, val age: Integer) {
+
     override def toString = "Bbb(" + name + "," + age + ")"
+
   }
 
   // Пример №3:
@@ -23,8 +29,8 @@ object Main1 {
   def main(args: Array[String]) {
     // Пример №1:
     val aaa: Aaa = new Aaa()
-    aaa.name = "Alex"
-    aaa.age = 23
+    aaa name = "Alex"
+    aaa age = 23
     println( aaa )
 
     // Пример №2:
