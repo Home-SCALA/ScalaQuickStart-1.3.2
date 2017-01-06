@@ -7,95 +7,102 @@ import java.util.List;
 import java.util.Set;
 
 /*
- * Test class instance for demo of interface default methods in Java 8
- * 
- * @author tirthalp
- * @see <a href="https://github.com/tirthalpatel/Learning-Java/blob/master/Java8/src/com/tirthal/learning/langfeatures/Ex_DefaultStaticMethodsInInterface.java">Java 8 - default methods in interface</a>
+ * Java: дефолтный метод ('default' в Java 8)
+ * ******************************************
+ * @see https://github.com/tirthalpatel/Learning-Java/blob/master/Java8/src/com/tirthal/learning/langfeatures/Ex_DefaultStaticMethodsInInterface.java
  */
+
+
 public class InterfaceDefaultMethodSample {
-		
-	public static void main(String[] args) {
-		Users users = new Users();
-		users.add(new User("Tids", 34));
-		users.add(new User("Adam", 40));
-		users.add(new User("Ian", 4));
-		System.out.println("Users sorted by name: " + users.sort());
-		
-		users = new UsersSortableByAge();
-		users.add(new User("Tids", 34));
-		users.add(new User("Adam", 40));
-		users.add(new User("Ian", 4));
-		System.out.println("Users sorted by age: " + users.sort());
-	}
+
+    public static void main(String[] args) {
+        // Пример №1:
+        Users users = new Users();
+        users.add(new User("Tids", 34));
+        users.add(new User("Adam", 40));
+        users.add(new User("Ian", 4));
+        System.out.println("Сортировка по полю 'fname' для класса-Users: " + users.sort());
+
+        // Пример №2:
+        users = new UsersSortableByAge();
+        users.add(new User("Tids", 34));
+        users.add(new User("Adam", 40));
+        users.add(new User("Ian", 4));
+        System.out.println("Другой способ сортировки по полю 'age' для класса-UsersSortableByAge: " + users.sort());
+    }
 }
 
-// Interface providing default ability of sorting for generic type A to be a sub-type of Comparable in collection
-interface Sortable<A extends Comparable<A>> extends Iterable<A> {
-	
-	// default sorting implementation, which may be overridden by class implementing this interface 
-	default public List<A> sort() {
-		List<A> list = new ArrayList<>();
-		for(A element: this)
-			list.add(element);
-		list.sort(null); // null indicates to use natural comparison method - User#compareTo()
-		return list;
-	}
-}
 
-// Users class gets default sorting behavior from the default sort() implementation in Sortable interface
-class Users implements Sortable<User> { // Here, User class must be sub-type of Comparable
-
-	private final Set<User> users = new HashSet<>();
-	
-	public void add(User user) {
-		users.add(user);
-	}
-	
-	@Override
-	public Iterator<User> iterator() {			
-		return users.iterator();
-	}		
-}
-
+/*
+ * Пример №1
+ * ( применяется при работе с коллекциями для реализации упорядоченной сортировки элементов в списке )
+ */
 class User implements Comparable<User> {
-	
-	private String fname;
-	private Integer age;
-	
-	User(String fname, Integer age) {
-		this.fname = fname;
-		this.age = age;
-	}
-	
-	public String getFname() {
-		return fname;
-	}
+    private String fname;
+    private Integer age;
 
-	public Integer getAge() {
-		return age;
-	}
-	
-	@Override
-	public int compareTo(User u) {
-		return fname.compareTo(u.fname); // Keep default natural ordering to sort user by fname
-	}
-	
-	@Override
-	public String toString() {
-		return fname + "'s age is " + age;
-	}
+    User(String fname, Integer age){
+        this.fname = fname;
+        this.age = age;
+    }
+
+    public String getFname(){
+        return fname;
+    }
+
+    public Integer getAge(){
+        return age;
+    }
+
+    @Override
+    public int compareTo(User u){
+        return fname.compareTo(u.fname);
+    }
+
+    @Override
+    public String toString(){
+        return fname + "'s age is " + age;
+    }
+}
+/* простой класс-списка элементов, который использует 'Sortable' (вместо 'List') для реализации сортировки своих элементов */
+class Users implements Sortable<User> { /* должен быть наследником от 'Comparable' */
+
+    private final Set<User> users = new HashSet<>();
+
+    public void add(User user) {
+        users.add(user);
+    }
+
+    @Override
+    public Iterator<User> iterator() {
+        return users.iterator();
+    }
 }
 
-// Another UsersSortableByAge class overrides default sorting behavior of Sortable interface
+/*
+ * Пример №2
+ * По умолчанию обеспечивает возможность сортировки для универсального типа (А), должен быть наследником-Comparable
+ */
+interface Sortable<A extends Comparable<A>> extends Iterable<A> {
+
+    /* ДЕФОЛТНЫЙ МЕТОД ('default') - БУДЕТ ВЫЗЫВАТЬСЯ ПО УМОЛЧАНИЮ ДЛЯ ВСЕХ НАСЛЕДНИКОВ ЭТОГО ТИПА.. */
+    default public List<A> sort() {
+        List<A> list = new ArrayList<>();
+        for(A element: this)
+            list.add(element);
+        list.sort(null); /* здесь 'null' - указывает на то чтоб использовать естественный метод сравнения (СотрагеТо).. */
+        return list;
+    }
+}
+/* Переопределение другого способа сортировки.. */
 class UsersSortableByAge extends Users {
-	
-	@Override
-	public List<User> sort() {
-		List<User> users = new ArrayList<>();
-		for(User u: this)
-			users.add(u);
-		users.sort((first, second) -> second.getAge().compareTo(first.getAge()));
-		return users;
-	}
-}
 
+    @Override
+    public List<User> sort() {
+        List<User> users = new ArrayList<>();
+        for(User u: this)
+            users.add(u);
+        users.sort((first, second) -> second.getAge().compareTo(first.getAge()));
+        return users;
+    }
+}

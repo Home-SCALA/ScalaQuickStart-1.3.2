@@ -57,6 +57,7 @@ Scala - функциональное программирование (functiona
 Аналогия Java c Scala (интерфейсы, абстрактные классы)
 ---------------------
 
-* **`#1`** `интерфейсы` [com.learning.java.inheritance.InterfaceSample.java](src/main/java/com/learning/java/inheritance/InterfaceSample.java) **|** [com.learning.scala.inheritance.TraitSample.scala](src/main/scala/com/learning/scala/inheritance/TraitSample.scala)
-* **`#2`** `` [com.learning.java.inheritance.InterfaceDefaultMethodSample.java](src/main/java/com/learning/java/inheritance/InterfaceDefaultMethodSample.java) **|** [com.learning.scala.inheritance.TraitDefaultMethodSample.scala](src/main/scala/com/learning/scala/inheritance/TraitDefaultMethodSample.scala)
+* **`#1`** `родительские классы и наследование` [com.learning.java.inheritance.SubTypeSample.java](src/main/java/com/learning/java/inheritance/SubTypeSample.java) **|** [com.learning.scala.inheritance.SubTypeSample.scala](src/main/scala/com/learning/scala/inheritance/SubTypeSample.scala)
+* **`#2`** `интерфейсы` [com.learning.java.inheritance.InterfaceSample.java](src/main/java/com/learning/java/inheritance/InterfaceSample.java) **|** [com.learning.scala.inheritance.TraitSample.scala](src/main/scala/com/learning/scala/inheritance/TraitSample.scala)
+* **`#3`** `дефолтные методы (default, override)` [com.learning.java.inheritance.InterfaceDefaultMethodSample.java](src/main/java/com/learning/java/inheritance/InterfaceDefaultMethodSample.java) **|** [com.learning.scala.inheritance.TraitDefaultMethodSample.scala](src/main/scala/com/learning/scala/inheritance/TraitDefaultMethodSample.scala)
 

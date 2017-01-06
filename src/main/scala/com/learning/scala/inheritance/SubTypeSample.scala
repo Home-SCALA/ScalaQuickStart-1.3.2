@@ -1,6 +1,12 @@
 package com.learning.scala.inheritance
 
 //  Test class instance for sub-type inheritance demo - Dog class is inheriting behavior of Animal class and can have its own too.
+
+/*
+ * Scala: родительские классы и наследование
+ */
+
+
 object SubTypeSample {
   def main(args: Array[String]) {
 	val d1 = new Dog(123)

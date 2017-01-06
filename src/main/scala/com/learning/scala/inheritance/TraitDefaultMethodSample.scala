@@ -1,56 +1,68 @@
 package com.learning.scala.inheritance
 
-// Test class instance for demo of default methods on Trait in Scala
-object TraitDefaultMethodSample {
+import scala.collection.mutable.Set
 
-  def main(args: Array[String]) {
-    var users = new Users();
-    users.add(new User("Tids", 34))
-    users.add(new User("Adam", 40))
-    users.add(new User("Ian", 4))
-    println("Users sorted by name: " + users.sort)
-    
-    users = new UsersSortableByAge();
-    users.add(new User("Tids", 34))
-    users.add(new User("Adam", 40))
-    users.add(new User("Ian", 4))
-    println("Users sorted by age: " + users.sort)
-  }
-}
-
-// Trait providing default ability of sorting for generic type A to be a sub-type of Comparable in collection
-trait Sortable[A <: Ordered[A]] extends Iterable[A] {
-  // Ordered is like comparable in java
-  // <: indicates upper bound to constraint generic type to be a sub-type of Ordered
-    
-  // default sorting implementation, which may be overridden by class extending trait 
-  def sort: Seq[A] = {
-    this.toList.sorted // By default in-built sorting method of Ordered uses natural comparison method - User#compare()
-  }
-}
-
-// Users class gets default sorting behavior from the default sort() implementation in Sortable interface
-class Users extends Sortable[User] { // Here, User class must be sub-type of Ordered
-  private val users = scala.collection.mutable.Set[User]()
-  
-  def add(user: User) = users.add(user)
-  
-  def iterator: Iterator[User] = users.iterator
-}
+/*
+ * Scala: дефолтный метод ('default' в интерфейсе 'trait')
+ */
 
 class User(val fname: String, val age: Int) extends Ordered[User] {
-  
   def compare(that: User): Int = fname.compare(that.fname)
-  
   override def toString: String = fname + "'s age is " + age
 }
 
-// Another UsersSortableByAge class overrides default sorting behavior of Sortable interface
+
+object TraitDefaultMethodSample {
+
+  def main(args: Array[String]){
+    // Пример №1:
+    var users = new Users
+    users.add(new User("Tids", 34))
+    users.add(new User("Adam", 40))
+    users.add(new User("Ian", 4))
+    println("Сортировка по полю 'fname' для класса-Users: " + users.sort)
+
+    // Пример №2:
+    users = new UsersSortableByAge
+    users.add(new User("Tids", 34))
+    users.add(new User("Adam", 40))
+    users.add(new User("Ian", 4))
+    println("Другой способ сортировки по полю 'age' для класса-UsersSortableByAge: " + users.sort)
+  }
+}
+
+
+/*
+ * Пример №1
+ * ( применяется при работе с коллекциями для реализации упорядоченной сортировки элементов в списке )
+ * По умолчанию, интерфейс-Sortable, обеспечивает возможность сортировки для универсального типа (А), должен быть наследником-Iterable
+ *
+ * 'Ordered' - имеет механизм сравнения порядка сортировки такой-же как и в Java
+ * указатель '<:' - ограничивает верхнюю границу для универсального типа (A), должен быть наследником-Ordered
+ */
+trait Sortable[A <: Ordered[A]] extends Iterable[A] {
+  /* ( реализует сортировку по умолчанию, которая может быть переопределена в классах-наследниках от этого интерфейса ) */
+  def sort: Seq[A] = {
+    this.toList.sorted /* ( это встроенный метод сортировки (по умолчанию) для 'Ordered' - использует естественный метод сравнения ) */
+  }
+}
+/* простой класс-списка элементов, который использует 'Sortable' для реализации сортировки своих элементов */
+class Users extends Sortable[User] { /* должен быть наследником от 'Ordered' */
+  private val users = Set[User]()
+  def add(user: User) = users.add(user)
+  def iterator: Iterator[User] = users.iterator
+}
+
+/*
+ * Пример №2
+ * По умолчанию обеспечивает возможность сортировки для универсального типа (А), должен быть наследником-Comparable
+ * Другой способ сортировки для класса-UsersSortableByAge...переопределяет дефолтный метод-сортировки для интерфейса (trait) 'Sortable'
+ */
 class UsersSortableByAge extends Users {
-  
+  /* ДЕФОЛТНЫЙ МЕТОД - БУДЕТ ВЫЗЫВАТЬСЯ ПО УМОЛЧАНИЮ ДЛЯ ВСЕХ НАСЛЕДНИКОВ ЭТОГО ТИПА.. */
   override def sort: List[User] = {
     this.toList.sorted(new Ordering[User] {
-      def compare(first: User, second: User) = second.age.compare(first.age)
+      def compare(first: User, second: User) = second.age compare(first age)
     })
   }
 }

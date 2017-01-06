@@ -6,6 +6,11 @@ package com.learning.java.inheritance;
  * @author tirthalp
  * @see <a href="https://github.com/tirthalpatel/Learning-OOPD/blob/master/DesignPrinciples/src/com/tirthal/learning/oop/concepts/Inheritance_TestDrive.java">Inheritance Concept</a>
  */
+
+/*
+ * Java: родительские классы и наследование
+ */
+
 public class SubTypeSample {
 
 	public static void main(String[] args) {
