@@ -14,7 +14,7 @@
 
 # Урок №1
 
-Аналогия Scala c Java ( classobj )
+Аналогия Java c Scala ( classobj )
 ---------------------
 
 * **`#1`** `Приведение типов в 'Scala' автоматически приводит тип переменной, основанной на стоимости, и нет необходимости явно указать компилятор` [com.learning.java.classobj.Abc.java](src/main/java/com/learning/java/classobj/Abc.java) **|** [com.learning.scala.classobj.Abc.scala](src/main/scala/com/learning/scala/classobj/Abc.scala)
@@ -27,7 +27,7 @@
 
 # Урок №2
 
-Аналогия Scala c Java (controlstruct)
+Аналогия Java c Scala (controlstruct)
 ---------------------
 
 * **`#1`** `cинтаксис условных конструкций` [com.learning.java.controlstruct.ConditionalsSyntax.java](src/main/java/com/learning/java/controlstruct/ConditionalsSyntax.java) **|** [com.learning.scala.controlstruct.ConditionalsSyntax.scala](src/main/scala/com/learning/scala/controlstruct/ConditionalsSyntax.scala)
@@ -50,4 +50,13 @@ Scala - функциональное программирование (functiona
 ---------------------------------------
 
 * **`#1`** `введение в функциональное программирование` [com.learning.scala.functional.IntroToFunctional.scala](src/main/scala/com/learning/scala/functional/IntroToFunctional.scala)
+
+
+# Урок №5
+
+Аналогия Java c Scala (интерфейсы, абстрактные классы)
+---------------------
+
+* **`#1`** `интерфейсы` [com.learning.java.inheritance.InterfaceSample.java](src/main/java/com/learning/java/inheritance/InterfaceSample.java) **|** [com.learning.scala.inheritance.TraitSample.scala](src/main/scala/com/learning/scala/inheritance/TraitSample.scala)
+* **`#2`** `` [com.learning.java.inheritance.InterfaceDefaultMethodSample.java](src/main/java/com/learning/java/inheritance/InterfaceDefaultMethodSample.java) **|** [com.learning.scala.inheritance.TraitDefaultMethodSample.scala](src/main/scala/com/learning/scala/inheritance/TraitDefaultMethodSample.scala)
 

@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-/**
+/*
  * Test class instance for demo of interface default methods in Java 8
  * 
  * @author tirthalp
