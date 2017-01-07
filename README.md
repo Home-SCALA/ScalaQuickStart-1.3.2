@@ -51,8 +51,8 @@ Scala - коллекции (collection)
 
 * **`#1`** `родительские классы и наследование` [com.learning.java.inheritance.SubTypeSample.java](src/main/java/com/learning/java/inheritance/SubTypeSample.java) **|** [com.learning.scala.inheritance.SubTypeSample.scala](src/main/scala/com/learning/scala/inheritance/SubTypeSample.scala)
 * **`#2`** `интерфейсы` [com.learning.java.inheritance.InterfaceSample.java](src/main/java/com/learning/java/inheritance/InterfaceSample.java) **|** [com.learning.scala.inheritance.TraitSample.scala](src/main/scala/com/learning/scala/inheritance/TraitSample.scala)
-* **`#3`** `дефолтные методы (default, override)` [com.learning.java.inheritance.InterfaceDefaultMethodSample.java](src/main/java/com/learning/java/inheritance/InterfaceDefaultMethodSample.java) **|** [com.learning.scala.inheritance.TraitDefaultMethodSample.scala](src/main/scala/com/learning/scala/inheritance/TraitDefaultMethodSample.scala)
-* **`#4`** ``
+* **`#3`** `дефолтные методы (default|override)` [com.learning.java.inheritance.InterfaceDefaultMethodSample.java](src/main/java/com/learning/java/inheritance/InterfaceDefaultMethodSample.java) **|** [com.learning.scala.inheritance.TraitDefaultMethodSample.scala](src/main/scala/com/learning/scala/inheritance/TraitDefaultMethodSample.scala)
+* **`#4`** `абстрактный (abstract) класс` [com.learning.java.inheritance.AbstractClassSample.java](src/main/java/com/learning/java/inheritance/AbstractClassSample.java) **|** [com.learning.scala.inheritance.AbstractClassSample.scala](src/main/scala/com/learning/scala/inheritance/AbstractClassSample.scala)
 
 
 # Урок №5

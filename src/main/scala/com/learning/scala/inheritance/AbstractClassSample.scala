@@ -1,24 +1,27 @@
 package com.learning.scala.inheritance
 
-// Test class for Abstract class demo in Scala
-object AbstractClassSample {
-  def main(args: Array[String]) {
-    val cp = new ColorPrinter()
-    cp.status
-    cp.print
-  }
-}
+/*
+ * Scala: абстрактный (abstract) класс
+ */
 
-// Abstract class
-abstract class Printer { // abstract = cannot be instantiated
-  // method without implementation indicates abstract method in Scala - sub-type class is forced to implement this
-  def print: Unit
-  // non-abstract method
+
+/* ( Абстрактный класс - такой abstract-класс нельзя создавать, он обязательно должен иметь своего класса-наследника.. ) */
+abstract class Printer {
+  def print: Unit /* в Scala, метод без определения своего тела - указывает такой метод является абстрактным, и класс-наследник вынужден определить собственную реализацию для этого абстрактного метода */
   def status: Unit = println("Printer is running")
 }
 
-// Sub-type class
+/* Класс-наследник */
 class ColorPrinter extends Printer {
-  // override keyword is not required when implementing abstract method
-  def print: Unit = println("Print in color") 
+  def print: Unit = println("Print in color")  // при определении тела для абстрактного метода - ключевое слово 'override' НЕтребуется
+}
+
+
+object AbstractClassSample {
+
+  def main(args: Array[String]) {
+    val cp = new ColorPrinter
+    cp status;
+    cp print;
+  }
 }
