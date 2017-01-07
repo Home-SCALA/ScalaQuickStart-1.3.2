@@ -1,12 +1,13 @@
 package com.learning.scala.generics
 
-import com.learning.scala.classobj.Customer
+/*
+ * Scala: Дженерики (Generics)
+ */
 
-// Syntax of Generics in Scala
+
 object GenericsSyntax {
   
   def main(args: Array[String]) {
-    
     // Generics = Parametric Polymorphism
     // Generics are mandatory for collection types (you can�t have the equivalent of a Java raw type)
     val stack = new ListStack[String]     // Square brackets are used by Scala to indicate a generic type. 
@@ -22,6 +23,7 @@ object GenericsSyntax {
     // ...
   }
 }
+
 
 // Generic Stack Example in Scala
 

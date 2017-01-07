@@ -3,11 +3,14 @@ package com.learning.java.generics;
 import java.util.ArrayList;
 import java.util.List;
 
-// Syntax of Generics in Java
+/*
+ * Java: Дженерики (Generics)
+ */
+
+
 public class GenericsSyntax {
 
-	public static void main(String[] args) {		
-		
+	public static void main(String[] args) {
 		// Generics = Parametric Polymorphism
 		Stack<String> stack = new ListStack<String>();
 		stack.push("A3");
@@ -22,6 +25,7 @@ public class GenericsSyntax {
 		// ...
 	}
 }
+
 
 // Generic Stack Example in Java
 

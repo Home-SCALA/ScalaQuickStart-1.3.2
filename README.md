@@ -61,3 +61,11 @@ Scala - функциональное программирование (functiona
 ---------------------------------------
 
 * **`#1`** `введение в функциональное программирование` [com.learning.scala.functional.IntroToFunctional.scala](src/main/scala/com/learning/scala/functional/IntroToFunctional.scala)
+
+
+# Урок №6
+
+Аналогия Java c Scala (Дженерики)
+--------------------
+
+* **`#1`** `Дженерики (Generics)` [com.learning.java.inheritance.GenericsSyntax.java](src/main/java/com/learning/java/inheritance/GenericsSyntax.java) **|** [com.learning.scala.inheritance.GenericsSyntax.scala](src/main/scala/com/learning/scala/inheritance/GenericsSyntax.scala)
