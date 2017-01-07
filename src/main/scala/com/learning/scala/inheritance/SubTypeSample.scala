@@ -1,35 +1,54 @@
 package com.learning.scala.inheritance
 
-//  Test class instance for sub-type inheritance demo - Dog class is inheriting behavior of Animal class and can have its own too.
-
 /*
  * Scala: родительские классы и наследование
+ *
+ * @see https://habrahabr.ru/post/269695/
+ *      *********************************
+ * Java
+ * > String mama = "Jane";
+ * > final String papa = "John";
+ *
+ * Scala
+ * > var mama = "Jane"
+ * > val papa = "John"
+ *
+ * @see http://alvinalexander.com/scala/scala-class-examples-constructors-case-classes-parameters
+ *      *****************************************************************************************
+ * Declaration    Getter?    Setter?
+ * -----------    -------    -------
+ * var            yes        yes
+ * val            yes        no
+ * default        no         no
+ *
  */
 
 
-object SubTypeSample {
-  def main(args: Array[String]) {
-	val d1 = new Dog(123)
-	d1.sound()
-  }
-}
-
-// Super class
+/*
+ * Super-класс
+ * ключевое слово 'val' - (в конструкторе Animal-класса) говорит Scala-компилятору создавать поля и getter-методы с модификатором доступом 'public' (но при этом setter-методы НЕсоздаются)
+ */
 class Animal(val id: Int) {
-  // val keyword in primary constructor of Animal class = instructs scala compiler to create fields and public getter access methods (not creating setter methods).
-
-  // generic method of super class
-  def sound() = println("By default it is mute")
+  def sound = println("By default it is mute") /* ( общий метод суперкласса ) */
 }
 
-// Sub class
+/* Sub-класс */
 class Dog(id: Int) extends Animal(id) {
+  private def bark = println("'Dog-" + id + "' is barking") /* (класифицируем поведение для конкретного вида животного) */
 
-  // Own behavior
-  private def bark() = println("Dog '" + id + "' is barking")
+  /*
+   * Переопределем поведение супер-класс для класса-наследника
+   * ( Java: '@Override' не является обязательным )
+   * Scala: нужно в обязательном порядке объявить метод как 'override' - и только тогда можно переопределить метод (но этот переопределяемый метод НЕ должен быть абстрактный)
+   */
+  override def sound = bark
+}
 
-  // Overriding super class behavior
-  // In Java - @Override is optional
-  // In Scala - It is mandatory to declare method as "override", when you override concrete (non-abstract) method
-  override def sound() = bark()
+
+object SubTypeSample {
+
+  def main(args: Array[String]) {
+    val dog = new Dog(123)
+    dog sound
+  }
 }
