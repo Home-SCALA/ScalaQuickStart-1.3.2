@@ -68,4 +68,4 @@ Scala - функциональное программирование (functiona
 Аналогия Java c Scala (Дженерики)
 --------------------
 
-* **`#1`** `Дженерики (Generics)` [com.learning.java.inheritance.GenericsSyntax.java](src/main/java/com/learning/java/inheritance/GenericsSyntax.java) **|** [com.learning.scala.inheritance.GenericsSyntax.scala](src/main/scala/com/learning/scala/inheritance/GenericsSyntax.scala)
+* **`#1`** `Дженерики (Generics)` [com.learning.java.generics.GenericsSyntax.java](src/main/java/com/learning/java/generics/GenericsSyntax.java) **|** [com.learning.scala.generics.GenericsSyntax.scala](src/main/scala/com/learning/scala/generics/GenericsSyntax.scala)
