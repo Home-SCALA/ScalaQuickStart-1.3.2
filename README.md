@@ -46,16 +46,24 @@ Scala - коллекции (collection)
 
 # Урок №4
 
-Аналогия Java c Scala (интерфейсы, абстрактные классы)
+Аналогия Java c Scala (inheritance)
 ---------------------
 
 * **`#1`** `родительские классы и наследование` [com.learning.java.inheritance.SubTypeSample.java](src/main/java/com/learning/java/inheritance/SubTypeSample.java) **|** [com.learning.scala.inheritance.SubTypeSample.scala](src/main/scala/com/learning/scala/inheritance/SubTypeSample.scala)
 * **`#2`** `интерфейсы` [com.learning.java.inheritance.InterfaceSample.java](src/main/java/com/learning/java/inheritance/InterfaceSample.java) **|** [com.learning.scala.inheritance.TraitSample.scala](src/main/scala/com/learning/scala/inheritance/TraitSample.scala)
-* **`#3`** `дефолтные методы (default|override)` [com.learning.java.inheritance.InterfaceDefaultMethodSample.java](src/main/java/com/learning/java/inheritance/InterfaceDefaultMethodSample.java) **|** [com.learning.scala.inheritance.TraitDefaultMethodSample.scala](src/main/scala/com/learning/scala/inheritance/TraitDefaultMethodSample.scala)
-* **`#4`** `абстрактный (abstract) класс` [com.learning.java.inheritance.AbstractClassSample.java](src/main/java/com/learning/java/inheritance/AbstractClassSample.java) **|** [com.learning.scala.inheritance.AbstractClassSample.scala](src/main/scala/com/learning/scala/inheritance/AbstractClassSample.scala)
+* **`#3`** `абстрактный (abstract) класс` [com.learning.java.inheritance.AbstractClassSample.java](src/main/java/com/learning/java/inheritance/AbstractClassSample.java) **|** [com.learning.scala.inheritance.AbstractClassSample.scala](src/main/scala/com/learning/scala/inheritance/AbstractClassSample.scala)
+* **`#4`** `дефолтные методы (default|override)` [com.learning.java.inheritance.InterfaceDefaultMethodSample.java](src/main/java/com/learning/java/inheritance/InterfaceDefaultMethodSample.java) **|** [com.learning.scala.inheritance.TraitDefaultMethodSample.scala](src/main/scala/com/learning/scala/inheritance/TraitDefaultMethodSample.scala)
 
 
 # Урок №5
+
+Аналогия Java c Scala (generics)
+--------------------
+
+* **`#1`** `Дженерики (Generics)` [com.learning.java.generics.GenericsSyntax.java](src/main/java/com/learning/java/generics/GenericsSyntax.java) **|** [com.learning.scala.generics.GenericsSyntax.scala](src/main/scala/com/learning/scala/generics/GenericsSyntax.scala)
+
+
+# Урок №6
 
 Scala - функциональное программирование (functional)
 ---------------------------------------
@@ -63,17 +71,9 @@ Scala - функциональное программирование (functiona
 * **`#1`** `введение в функциональное программирование` [com.learning.scala.functional.IntroToFunctional.scala](src/main/scala/com/learning/scala/functional/IntroToFunctional.scala)
 
 
-# Урок №6
-
-Аналогия Java c Scala (Дженерики)
---------------------
-
-* **`#1`** `Дженерики (Generics)` [com.learning.java.generics.GenericsSyntax.java](src/main/java/com/learning/java/generics/GenericsSyntax.java) **|** [com.learning.scala.generics.GenericsSyntax.scala](src/main/scala/com/learning/scala/generics/GenericsSyntax.scala)
-
-
 # Урок №7
 
-Особенности в Scala
+Особенности в Scala (features)
 -------------------
 
 * **`#1`** `` [com.learning.scala.features.__.scala](src/main/scala/com/learning/scala/features/__.scala)
