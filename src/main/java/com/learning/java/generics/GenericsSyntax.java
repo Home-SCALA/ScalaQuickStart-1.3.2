@@ -8,33 +8,12 @@ import java.util.List;
  */
 
 
-public class GenericsSyntax {
-
-	public static void main(String[] args) {
-		// Generics = Parametric Polymorphism
-		Stack<String> stack = new ListStack<String>();
-		stack.push("A3");
-		stack.push("A2");
-		stack.push("A1");
-		String element = stack.pop();
-		System.out.println(element);
-	}
-	
-	// Generic method
-	public <A> void add(A a) {
-		// ...
-	}
-}
-
-
-// Generic Stack Example in Java
-
-interface Stack<T> { // Generic interface
+interface Stack<T> { /* ( использование Дженерика в интерфейсе ) */
 	void push(T t);
 	T pop();
 }
 
-class ListStack<T> implements Stack<T> { // Generic class
+class ListStack<T> implements Stack<T> { /* ( использование Дженерика в классе ) */
 	private final List<T> elements = new ArrayList<T>();
 
 	@Override
@@ -50,29 +29,52 @@ class ListStack<T> implements Stack<T> { // Generic class
 	}
 }
 
-// Bound Types Syntax
-
+/* Пример работы с разными, ранее неизвестными, типами: */
 class BoundTypesSyntax { 
 	
-	//****** ? = wildcards 
-	
-	//****** extends keyword = Upper Bounds
-	// <? extends T> - It will allow either T or subclasses of T, and T represents upper bound
+	/*
+	 * '?' - Знак подстановки
+	 * ключевое слово 'extends' - расширяет базовый тип..
+	 * это выражение '<? extends T>' - позволяет использовать либо для неизвестного типа 'Т' либо для всех классов-наследников от этого неизвестного типа 'Т'..
+     */
 	public void ex1(List<? extends Number> list) {
-		// Number is upper bound, so either "Number" or subclass of "Number" (e.g. Integer, Float) is acceptable
+        /* (Number) представляет неизвестный тип, поэтому либо для (Number) либо для всех его других классов-наследников (например: Integer, Float) - работа с ними будет являтся приемлемой.. */
 	}
-	
-	//****** super keyword = Lower Bounds 
-	// <? super T> - It will allow T and super classes of T, and T represents lower bound
+
+    /*
+	 * ключевое слово 'super' - расширяет свой родительский под-тип..
+	 * это выражение '<? super T>' - позволяет использовать либо для неизвестного типа 'Т' в родительском супер-классе либо для всех классов-наследников от этого родительского супер-класса..
+     */
 	public void ex2(List<? super Integer> list) {
-		// Integer is lower bound, so either "Integer" or super class of "Integer" (e.g. Number) is acceptable
+        /* (Integer) является родительским супер-классом, (похожим как например на: "Number"..) - работа с ними будет являтся приемлемой.. */
 	}
 	
-	//****** Unbounded wildcard = unknown generic type 
-	// For example - List<?> list
-	
-	//****** Java can set multiple upper bounds
-	// For example - public static <A extends Animal & Comparable<Animal>> void sort(List<A> list) { ... }
-	
-	//****** Java cannot set lower and upper bounds
+	/*
+     * Знак подстановки без ограничения - является универсальным для использования всех неизвестных типов...например:
+	 * > List<?> list
+	 *
+	 * В Java можно установливать несколько элементов неизвестного типа, например:
+	 * > public static <A extends Animal & Comparable<Animal>> void sort(List<A> list) { ... }
+	 *
+	 * Но Java НЕможет одновременно установливать несколько элементов неизвестного типа для 'extends' и 'super'..
+     */
+}
+
+
+public class GenericsSyntax {
+
+    public static void main(String[] args) {
+		/* Дженерики И параметрический полиморфизм..: */
+        Stack<String> stack = new ListStack<String>();
+        stack.push("A3");
+        stack.push("A2");
+        stack.push("A1");
+        String element = stack.pop();
+        System.out.println(element);
+    }
+
+    /* Использование Дженерика в методе: */
+    public <A> void add(A a) {
+        // ...
+    }
 }
