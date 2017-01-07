@@ -69,3 +69,11 @@ Scala - функциональное программирование (functiona
 --------------------
 
 * **`#1`** `Дженерики (Generics)` [com.learning.java.generics.GenericsSyntax.java](src/main/java/com/learning/java/generics/GenericsSyntax.java) **|** [com.learning.scala.generics.GenericsSyntax.scala](src/main/scala/com/learning/scala/generics/GenericsSyntax.scala)
+
+
+# Урок №7
+
+Особенности в Scala
+-------------------
+
+* **`#1`** `` [com.learning.scala.features.__.scala](src/main/scala/com/learning/scala/features/__.scala)
