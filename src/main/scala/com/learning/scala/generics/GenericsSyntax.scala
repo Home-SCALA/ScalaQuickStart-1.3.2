@@ -5,74 +5,77 @@ package com.learning.scala.generics
  */
 
 
-object GenericsSyntax {
+trait Stack[T] { /* ( использование Дженерика в интерфейсе ) */
+  def push(t: T)
+  def pop: T
+}
+
+class ListStack[T]() extends Stack[T] {  /* ( использование Дженерика в классе ) */
+  private var elements: List[T] = List()
   
+  override def push(t: T): Unit = {      
+    elements = t +: elements /* '+:' - создает копию списка с предварительными элементом (потому что в Scala список является неизменен 'immutable' ) */
+  }
+  
+  override def pop: T = {
+    if(elements.isEmpty)
+      throw new IndexOutOfBoundsException
+    val head = elements.head /* 'head' (голова структуры списка) - выбирает первый элемент этого списка.. */
+    elements = elements.tail /* 'tail (хвост структуры списка) - выбирает все элементы, кроме первого */
+    head
+  }
+}
+
+/* Пример работы с разными, ранее неизвестными, типами: */
+class BoundTypesSyntax { 
+
+  /*
+   * '_' - Знак подстановки
+   * '<:' - расширяет базовый тип..
+   * '[? <: T]' - позволяет использовать либо для неизвестного типа 'Т' либо для всех классов-наследников от этого неизвестного типа 'Т'..
+   */
+  def ex1(list: List[_ <: Number]): Unit = {
+    /* (Number) представляет неизвестный тип, поэтому либо для (Number) либо для всех его других классов-наследников (например: Integer, Float) - работа с ними будет являтся приемлемой.. */
+  }
+
+  /*
+   * ':>' - расширяет свой родительский под-тип..
+   * '[? :> T]' - позволяет использовать либо для неизвестного типа 'Т' в родительском супер-классе либо для всех классов-наследников от этого родительского супер-класса..
+   */
+  def ex2(list: List[_ >: Integer]) {
+    /* (Integer) является родительским супер-классом, (похожим как например на: "Number"..) - работа с ними будет являтся приемлемой.. */
+  }
+
+  /*
+     * Знак подстановки без ограничения - является универсальным для использования всех неизвестных типов:
+   * > list: List[_]
+   *
+   * В Scala НЕльзя установить несколько элементов неизвестного типа, но можно их ограничить по нескольким интерфейсам (trait)...например:
+   * > def sort[A <: Lion with Comparable[Animal]](list: List[A]) = { ... }
+   *
+   * В Scala можно одновременно установливать несколько элементов неизвестного типа для (lower) и (upper)...например:
+   * > def foo(A >: Lion <: Animal](a: A) = { ... } // тип ('А') должен иметь тип супер-класса (Lion), который является наследником от типа своего базового супер-класса ('Animal')..
+   */
+}
+
+
+object GenericsSyntax {
+
   def main(args: Array[String]) {
-    // Generics = Parametric Polymorphism
-    // Generics are mandatory for collection types (you can�t have the equivalent of a Java raw type)
-    val stack = new ListStack[String]     // Square brackets are used by Scala to indicate a generic type. 
+    /*
+     * Дженерики И параметрический полиморфизм..:
+     * Дженерики являются обязательными для коллекций (но в Java вы не можете иметь такой-же эквивалент исходный код... )
+     */
+    val stack = new ListStack[String] /* ( в Scala используются квадратные скобки для обозначения общего типа..) */
     stack.push("A3")
     stack.push("A2")
     stack.push("A1")
     val element: String = stack.pop
     println(element)
   }
-  
-  // Generic method
+
+  /* Использование Дженерика в методе: */
   def add[A](a: A) {
     // ...
   }
 }
-
-
-// Generic Stack Example in Scala
-
-trait Stack[T] {      // Generic interface
-  def push(t: T)
-  def pop: T
-}
-
-class ListStack[T]() extends Stack[T] {  // Generic class
-  private var elements: List[T] = List()  
-  
-  override def push(t: T): Unit = {      
-    elements = t +: elements             // +: creates a copy of the list with an element prepended, because scala list is immutable
-  }
-  
-  override def pop: T = {
-    if(elements.isEmpty)
-      throw new IndexOutOfBoundsException
-    val head = elements.head    // head selects the first element of this list
-    elements = elements.tail    // tail selects all elements except the first
-    head
-  }
-}
-
-// Bound Types Syntax
-
-class BoundTypesSyntax { 
-  
-  //****** wildcards (using _) 
-  
-  //****** <: = Upper Bounds
-  // [? <: T] - It will allow either T or subclasses of T, and T represents upper bound
-  def ex1(list: List[_ <: Number]): Unit = {
-    // Number is upper bound, so either "Number" or subclass of "Number" (e.g. Integer, Float) is acceptable
-  }
-  
-  //****** :> = Lower Bounds 
-  // [? :> T] - It will allow T and super classes of T, and T represents lower bound
-  def ex2(list: List[_ >: Integer]) {
-    // Integer is lower bound, so either "Integer" or super class of "Integer" (e.g. Number) is acceptable
-  }
-  
-  //****** Unbounded wildcard = unknown generic type 
-  // For example - list: List[_]
-  
-  //****** Scala cannot set multiple upper bounds rather can constrain by multiple traits
-  // For example - def sort[A <: Lion with Comparable[Animal]](list: List[A]) = { ... }
-  
-  //****** Scala can set lower and upper bounds
-  // For example - def foo(A >: Lion <: Animal](a: A) = { ... } = A must be a super type of Lion and sub type of Animal
-}
-
