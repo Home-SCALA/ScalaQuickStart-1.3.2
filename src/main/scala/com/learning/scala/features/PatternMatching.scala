@@ -5,6 +5,8 @@ package com.learning.scala.features
  */
 
 
+case class Color(id: Int, name: String, code: String)
+
 object PatternMatching extends App {
 
   /*
@@ -20,24 +22,32 @@ object PatternMatching extends App {
         case _ => "unknown"  /* ( с помощью знака подстановки '_' в конце - по умолчанию (это не является обязательным) 'match-case' выражение ловит любое значение.. ) */
    }
    println(day + " is " + dayType)
-   
-   // (2) ---> What is pattern?
-   //
-   //   In below syntax, pattern can be wildcard (_), variable name, literal equality, constructor match, deconstructor match, type query patterns, a pattern with alternatives
-   //
-   //   value match {
-   //      case pattern guard => expression   
-   //      case ...
-   //      case _ => expression
-   //   }
-   
-   // --- Example - Pattern can be any variable name i.e. x
+
+   /*
+    * (#2) Что такое шаблон?
+    *
+    * В этом синтаксисе что ниже:
+    * * знак подстановки '_' - может быть шаблоном
+    * * 'variable' - переменной
+    * * 'literal' - равенство
+    * * match-конструктор и match-деконструктор
+    * * паттерны типа запросов
+    * * паттерн с альтернативными вариантами
+    *
+    * >   value match {
+    * >     case pattern guard => expression
+    * >     case ...
+    * >     case _ => expression
+    * >  }
+   */
+
+   /* Например: паттерном может быть любое имя переменной, т.е. ('х') */
    val str = "tirthal"   
    str match {
      case x => println("Hello " + x) 
    }
 
-   // --- Example - Literal Matches (value must exactly matched with the Literal case i.e. match using ==)
+   /* Например: литеральные совпадения ( значение должно точно соответствовать с литеральным case-ом, для этого 'match' использует '==' ) */
    val language = "Gujarati"
    language match {
      case "Engish" => println("How are you?")
@@ -45,32 +55,32 @@ object PatternMatching extends App {
      case "Gujarati" => println("Kem cho? Majama?")
      case _ => println("Hi")
    }
-   
-   // --- Example - Constructor Patterns (allow you to match on the arguments used to construct an object) works on "case" class only
+
+   /* Например: конструктор паттернов ( позволяет сопоставлять аргументы которые используются для построения объектов ) работает только для классов в 'case'.. */
    val color = new Color(1, "Red", "RC")
    color match {
-     case Color(_, "Red", _) => println("This is red color")  // Match if name is "Red" in 2nd argument of Color constructor
-     case Color(_, _, _) => println("???")    // "_" indicates that you don't care what the values are
+     case Color(_, "Red", _) => println("This is red color") /* сравнивается: если поле ('name') равно "Красный" во 2-м аргументе в конструкторе класса-Color */
+     case Color(_, _, _) => println("???") /* '_'  - указывает на то что все равно какими это будут значения.. */
    } 
-   
-   // --- Example - Type Queries (used for convenient type checks and type casts)
+
+   /* Например тип запросов используется: для проверки подходящего типа; и для проверки приведения типов; ) */
    def generalSize(x: Any): Int = x match {
-     case s: String => s.length  // 's' can only be a 'String'
-     case m: Map[_, _] => m.size // 'm' can only be a 'Map'
-     case _ => -1                // for any other type, return -1
-   }                                               
-    
+     case s: String => s.length  // 's' может быть только 'String'
+     case m: Map[_, _] => m.size // 'm'  может быть только 'Map'
+     case _ => -1                // для любого другого типа возвращает ('-1')
+   }
    println { generalSize("Tirthal") }                           //> Int = 7
    println { generalSize(Map(1 -> "one", 2 -> "two")) }         //> Int = 2
    println { generalSize(math.Pi) }                             //> Int = -1
    println { generalSize(List("A1", "A2", "A3")) }              //> Int = -1
-   
-   // (3) ---> What is guard?
-   // A pattern guard comes after a pattern and starts with an if & the pattern matches only if the guard evaluates to true
-   // Example syntax - 
-   //     match only positive integers --- case n: Int if 0 < n => n + " is positive"
-   //     match only strings starting with the letter �a� --- case s: String if s(0) == 'a' => s + " starts with letter 'a'"
-}
 
-// Case classes are regular classes which export their constructor parameters and which provide a recursive decomposition mechanism via pattern matching
-case class Color(id: Int, name: String, code: String)
+   /*
+    * (#3) Что такое 'guard' ?
+    *
+    * Паттерн 'guard' приходит после того когда паттерн начинается с 'if', и паттерн сопоставляет только тогда когда 'guard' возвращает истину (true), пример:
+    * * 'match' только для натуральных (положительных) чисел
+    *   > case n: Int if 0 < n => n + " is positive"
+    * * 'match' только для строк которые начинающиеся с буквы ('a')
+    *   > case s: String if s(0) == 'a' => s + " starts with letter 'a'"
+    */
+}

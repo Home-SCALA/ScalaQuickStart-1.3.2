@@ -2,20 +2,24 @@ package com.learning.scala.features
 
 import java.util.Calendar
 
-// map and flatMap function usage and syntax in Scala
+/*
+ * Scala: использование Map и функции-flatMap
+ */
+
 
 object MapAndFlapmapFunctions extends App {
 
-  // function calculates an age for the provided birth year
+  /* ( Функция на вход принимает параметр (год рождения) и вычисляет возраст.. ) */
   def age(birthYear: Int) = {
     Calendar.getInstance.get(Calendar.YEAR) - birthYear
   }
-  
-  // Let's say, we want to age for List of years
-  val birthdays = List(1995, 1981, 1986, 2011)
-  
-  // map() - builds a new collection by applying a function to all elements of this list
-  // below all three ways do the same thing
+
+  val birthdays = List(1995, 1981, 1986, 2011) /* ( Наприимер: хотим получить возраст для целого списка лет-рождения ) */
+
+  /*
+   * 'map()' - создает новую коллекцию путем применения функции ко всем элементам этого списка..
+   * Примеры как можно сделать это трех способами:
+   */
   println {
     birthdays.map(age) + " = " +  
     birthdays.map(year => Calendar.getInstance.get(Calendar.YEAR) - year) + " = " + 

@@ -77,4 +77,4 @@ Scala - функциональное программирование (functiona
 -------------------
 
 * **`#1`** `паттерн 'Matching'` [com.learning.scala.features.PatternMatching.scala](src/main/scala/com/learning/scala/features/PatternMatching.scala)
-* **`#2`** `flatMap (Calendar)` [com.learning.scala.features.MapAndFlapmapFunctions.scala](src/main/scala/com/learning/scala/features/MapAndFlapmapFunctions.scala)
+* **`#2`** `использование Map и функции-flatMap` [com.learning.scala.features.MapAndFlapmapFunctions.scala](src/main/scala/com/learning/scala/features/MapAndFlapmapFunctions.scala)
