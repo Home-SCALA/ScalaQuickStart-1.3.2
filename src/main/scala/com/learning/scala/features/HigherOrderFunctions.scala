@@ -1,25 +1,34 @@
 package com.learning.scala.features
 
-// How scala allows you to write expressive code by faking language constructs using Curly Brace Rule and Higher-order Functions
+/*
+ * Scala: как Scala позволяет писать выразительный код фальсифицируя конструкцию языка с использованием правила фигурной скобкой и функций высшего порядка..
+ */
+
 
 object HigherOrderFunctions extends App {  
 
-    // ---> (1) Curly Brace Rule in Scala for using {} instead of regular () 
-    // In any method call, in which you pass in exactly one argument, you can use curly braces to surround that argument instead of parentheses
+    /*
+     * (#1) В Scala как правило, вместо регулярных '{}', используются фигурные скобки '()'
+     *      При каждом вызове метода, в котором вы проходите ровно один аргумент, вы можете использовать фигурные скобки, чтобы выделить этот аргумент (вместо круглых скобок)..
+     */
     val quarters = List("Q1", "Q2", "Q3", "Q4")
-    
-    quarters.foreach(println(_))  // Here foreach is a method having one argument
-    // Above you can write as below using curly brace rule
-    quarters.foreach {  // now this looks like language's inbuilt for loop construct, even if it is a method 
+
+    println("##############")
+    quarters.foreach( println(_) ) /* ( здесь 'foreach' является методом который имеет один аргумент ) */
+
+    /* Ниже вы можете написать тоже самое как показано выше, только используя правило фигурной скобки: */
+    println("\n##############")
+    quarters.foreach { /* ( теперь это выглядит как для встроенной loop-конструкции, и даже если это используется внутри метода ) */
       println(_) 
     }
-    
-    // ---> (2) First-order function vs. Higher-order functions
-    
-    // --- Define First-order functions vs. Higher-order functions
-   
-    // First-order functions = functions take some types as parameters and return some type as a result.
-    // Example of a first order function that takes two integer values and returns the value.  
+
+    /*
+     * (#2) Функция первого порядка по сравнению с функциями высшего порядка..
+     *      Определим функцию первого порядка по сравнению с функциями высшего порядка:
+     *
+     * Функции первого порядка - такие функции принимают некоторые типы в качестве параметров и возвращают некоторый тип в качестве результата.
+     * Пример функции первого порядка, который принимает два целочисленных значения и возвращает значение:
+     */
     def sumOfSquares(a: Int, b: Int): Int = {
      a * a + b * b
     }
@@ -27,24 +36,34 @@ object HigherOrderFunctions extends App {
     def sumOfCubes(a: Int, b: Int): Int = {
      a * a * a + b * b * b
     }
-    
-    // Higher-order functions = functions that take other functions as parameters, or whose result is a function.
-    // Now refactor above to use a higher-order function taking three parameters - a function that takes an Int and returns an Int, an Int named a, an Int named b 
+
+    /*
+     * Функции высшего порядка - такие функции, которые принимают другие функции в качестве параметров, или чей результат является функцией.
+     * Перепишем код изложеный выше, чтобы использовать функцию высшего порядка, которая принимая три параметра:
+     * 1) функция которая принимает 'Int' и возвращает 'Int';
+     * 2) как 'Int';
+     * 3) по имени 'Ь: Int';
+     */
     def sumOfTwoOperations(function: Int => Int, a: Int, b: Int): Int = {
-     function(a) + function(b) // shorthand for this syntax - function.apply(a) + function.apply(b)
+     function(a) + function(b) /* сокращенная для этого синтаксиса: >  function.apply(a) + function.apply(b) */
     }
-    
-    // --- Calling First-order functions vs. Higher-order functions
-    
-    // Calling "sumOfSquares" and "sumOfCubes" first-order functions
+
+    /*
+     * Вызов функции первого порядка по сравнению с функциями высшего порядка
+     * Вызов 'sumOfSquares' и 'sumOfCubes' для функции первого порядка:
+     */
+    println("\n##############")
     println { sumOfSquares(2,3) }
+    println("\n##############")
     println { sumOfCubes(2,3) }
-    
-    // Calling "sumOfTwoOperations" higher-order function by passing a "squared" function as the first parameter
+
+    /* Вызов 'sumOfTwoOperations' для функции высшего порядка, передав в качестве первого параметра функцию ('squared'): */
     def squared(x: Int): Int = x * x
+    println("\n##############")
     println { sumOfTwoOperations(squared, 2, 3) }
-    
-    // Calling "sumOfTwoOperations" higher-order function by passing a "squared" function as the first parameter
+
+    /* Вызов 'sumOfTwoOperations' для функции высшего порядка, передав в качестве первого параметра функцию ('cubed'): */
     def cubed(x: Int): Int = x * x * x
+    println("\n##############")
     println { sumOfTwoOperations(cubed, 2, 3) }
 }

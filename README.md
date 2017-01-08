@@ -78,3 +78,6 @@ Scala - функциональное программирование (functiona
 
 * **`#1`** `паттерн 'Matching'` [com.learning.scala.features.PatternMatching.scala](src/main/scala/com/learning/scala/features/PatternMatching.scala)
 * **`#2`** `использование Map и функции-flatMap` [com.learning.scala.features.MapAndFlapmapFunctions.scala](src/main/scala/com/learning/scala/features/MapAndFlapmapFunctions.scala)
+* **`#3`** `как Scala позволяет писать выразительный код фальсифицируя конструкцию языка с использованием правила фигурной скобкой и функций высшего порядка` [com.learning.scala.features.HigherOrderFunctions.scala](src/main/scala/com/learning/scala/features/HigherOrderFunctions.scala)
+* **`#4`** `` [com.learning.scala.features.ApplyUpdateMethodUsage.scala](src/main/scala/com/learning/scala/features/ApplyUpdateMethodUsage.scala)
+* **`#5`** `` [com.learning.scala.features.CurryingUsage.scala](src/main/scala/com/learning/scala/features/CurryingUsage.scala)
