@@ -76,4 +76,5 @@ Scala - функциональное программирование (functiona
 Особенности в Scala (features)
 -------------------
 
-* **`#1`** `` [com.learning.scala.features.__.scala](src/main/scala/com/learning/scala/features/__.scala)
+* **`#1`** `паттерн 'Matching'` [com.learning.scala.features.PatternMatching.scala](src/main/scala/com/learning/scala/features/PatternMatching.scala)
+* **`#2`** `flatMap (Calendar)` [com.learning.scala.features.MapAndFlapmapFunctions.scala](src/main/scala/com/learning/scala/features/MapAndFlapmapFunctions.scala)

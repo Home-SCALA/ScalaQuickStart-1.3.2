@@ -1,18 +1,23 @@
 package com.learning.scala.features
 
-// Syntax of Pattern Matching in Scala
+/*
+ * Scala: паттерн 'Matching'
+ */
+
 
 object PatternMatching extends App {
 
-   // (1) ---> Switch like behavior
-   // Scala has no Switch statement, instead it uses Match Expressions / Pattern Matching 
-   // Flexible match conditions - it can match anything including even objects
-   // It has no break and a case match is an expression (can assign value)
+  /*
+   * (#1) 'switch' как поведение:
+   *      - Scala НЕимеет никакого switch-состояния, вместо этого в Scala используется match-выражение (паттерн 'Matching')
+   *      - Гибкие условия поиска - он может сочитаться с чем-угодно, включая даже объекты..
+   *      - 'match-case' является выражением которое НЕимеет 'break', и оно также может присваивать значение..
+   */
    val day = "ABC"
    val dayType = day match {
         case "Monday" | "Tuesday" | "Wednesday" | "Thurday" | "Friday" => "working day"
         case "Saturday" | "Sunday" => "holiday"
-        case _ => "unknown"  // optional default catch every value at the end using wildcard(_)
+        case _ => "unknown"  /* ( с помощью знака подстановки '_' в конце - по умолчанию (это не является обязательным) 'match-case' выражение ловит любое значение.. ) */
    }
    println(day + " is " + dayType)
    
