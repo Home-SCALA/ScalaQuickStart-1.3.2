@@ -80,4 +80,4 @@ Scala - функциональное программирование (functiona
 * **`#2`** `использование Map и функции-flatMap` [com.learning.scala.features.MapAndFlapmapFunctions.scala](src/main/scala/com/learning/scala/features/MapAndFlapmapFunctions.scala)
 * **`#3`** `как Scala позволяет писать выразительный код фальсифицируя конструкцию языка с использованием правила фигурной скобкой и функций высшего порядка` [com.learning.scala.features.HigherOrderFunctions.scala](src/main/scala/com/learning/scala/features/HigherOrderFunctions.scala)
 * **`#4`** `как использовать методы стилей в Scala - метод 'apply' и метод 'update'` [com.learning.scala.features.ApplyUpdateMethodUsage.scala](src/main/scala/com/learning/scala/features/ApplyUpdateMethodUsage.scala)
-* **`#5`** `` [com.learning.scala.features.CurryingUsage.scala](src/main/scala/com/learning/scala/features/CurryingUsage.scala)
+* **`#5`** `'Currying' функции` [com.learning.scala.features.CurryingUsage.scala](src/main/scala/com/learning/scala/features/CurryingUsage.scala)

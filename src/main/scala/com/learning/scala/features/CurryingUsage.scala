@@ -1,30 +1,40 @@
 package com.learning.scala.features
 
-// What is currying in Scala? (source: http://www.codecommit.com/blog/scala/function-currying-in-scala)
-// Currying = The process of turning a function of two or more arguments into a series of functions, each taking a single argument
-// Regular function --- f(a, b) = a + b --- can be called as f(1, 2)
-// Curried function --- f(a) -> f'(b) -> a + b  --- can be called as f(1)(2)
+/*
+ * Scala: что такое 'currying'
+ * @see http://www.codecommit.com/blog/scala/function-currying-in-scala
+ *
+ * * 'Currying' - это процесс превращения одной функции из двух и более аргументов в ряд из нескольких функций, каждая из которых принимает только один аргумент
+ * * Регулярная функция:
+ *    > f(a, b) = a + b
+ *   >> f(1, 2)
+ * * Curried функция:
+ *    > f(a) -> f'(b) -> a + b
+  *  >> f(1)(2)
+ */
 
+
+/* Синтаксис: регулярная функция против curried-функцией */
 object CurryingUsage extends App {
- 
-    // Syntax - regular vs. curried function
-  
-    // Regular function syntax
+    /* (синтаксис: регулярная функция) */
     def add(x: Int, y: Int): Int = x + y
     println { add(1, 2) }
-    // Curried version of function
-    def addCurried(x: Int)(y: Int): Int = x + y // another syntax of curried function ---> def addCurried(x:Int) = (y:Int) => x + y
-    println { addCurried(1)(2) } // This is syntax to call curried version of function
+    /* (синтаксис: версия Curried-функция) */
+    def addCurried(x: Int)(y: Int): Int = x + y /* другой синтаксис для Curried-функции:  def addCurried(x:Int) = (y:Int) => x + y */
+    println { addCurried(1)(2) }                /* это синтаксис вызова Curried-функции */
     
-    // --- Example of high-order curried version of function for defining general and specialized functions
-    
-    // This is high-order function, because it takes other function as arguments i.e. filter function as first parameter that takes generic A type as an argument and returns boolean as a result
+    /*
+     * Пример curried-функции высокого порядка для определения общих и специальных функций:
+     * Это функция высокого порядка, потому-что она в качестве аргументов принимает другие функции, то есть, функцию фильтра в качестве первого параметра которая-же в качестве аргумента принимает общий тип ('A') и возвращает в качестве результата булевское значение..
+     */
     def process[A](filter: A => Boolean)(list: List[A]): List[A] = {
       lazy val recurse = process(filter) _
-     
-      // :: is a method of List which adds an element at the beginning of this list
-      // head is a method which selects the first element of this iterable collection
-      // tail is a method which selects all elements except the first
+
+      /*
+       * '::'   - это метод списка, который добавляет элемент в начало списка
+       * 'head' - это метод который выбирает первый элемент из этой коллекции 'Iterable'
+       * 'tail' - это метод который выбирает все элементы кроме первого
+       */
       list match {  
         case head::tail => if (filter(head)) {
           head::recurse(tail)
@@ -35,27 +45,28 @@ object CurryingUsage extends App {
         case Nil => Nil
       }
     }
-    
-    // Some immutable variables
+
+    /* какие-то 'immutable' (НЕизменные) переменные: */
     val numbersAsc = 1::2::3::4::5::Nil
     val numbersDesc = 5::4::3::2::1::Nil
     
     val even = (a:Int) => a % 2 == 0 
     val odd = (a:Int) => a % 2 != 0       
         
-    // Using curried function, we can apply curly brace rule when calling process        
+    /* Для использование curried-функции можно применить правило 'фигурной скобки', при вызове ('process') */
     val evenNumbersAsc = process(even) { numbersAsc }   // using {} instead of () syntax looks better than - process(even)(numbersAsc)    
-    println(evenNumbersAsc) // [2, 4]   
+    println(evenNumbersAsc)  //> [2, 4]
     val evenNumbersDesc = process(even) { numbersDesc }  
-    println(evenNumbersDesc) // [4, 2]
+    println(evenNumbersDesc) //> [4, 2]
     
-    // In above problem is - the repeated invocation of process(even)
-    
-    // Improve it further using partially applied curried functions    
-    val processOdds = process(odd) _   // Here _ indicates that curried function is partially applied - just tells the compiler to treat the suffixed value as a functional, rather than a method to be evaluated
-    
+    /*
+     * В выше изложенном примере есть проблемы с дублирующими вызовами для 'process(even)'..
+     * для дальнейшего здесь частично используются curried-функции:
+     */
+    val processOdds = process(odd) _ /* ( знак подстановки '_' - указывает что curried-функция будет частично применятся - говорит компилятору   об применении значения суффиксов как для функции (а не как для метода).. ) */
+
     val oddNumbersAsc = processOdds { numbersAsc }   
-    println(oddNumbersAsc) // [1, 3, 5]
+    println(oddNumbersAsc)  //> [1, 3, 5]
     val oddNumbersDesc = processOdds { numbersDesc }  
-    println(oddNumbersDesc) // [5, 3, 1]
+    println(oddNumbersDesc) //> [5, 3, 1]
 }
