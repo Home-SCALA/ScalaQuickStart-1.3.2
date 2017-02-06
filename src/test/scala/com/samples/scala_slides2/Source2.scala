@@ -19,6 +19,21 @@ object Person {
 }
 
 
+class Food {
+  def transforms(quickly: Boolean) = if (quickly) 10 else 1000
+  def @?#! = 0
+}
+
+class Human {
+  def quickly() = true
+  def licks(food: Food) = food.transforms(!quickly())
+  def eats(food: Food) = food transforms quickly
+  def ####(food: Food) = food @?#!
+  def lives { this eats new Food } // eats new Food - compilation error
+  def life { this.lives }
+}
+
+
 object Source2 {
 
   def main(args: Array[String]): Unit = {
@@ -51,6 +66,15 @@ object Source2 {
     println( "sumMeta1 = " + sumMeta1(1,2,(x: Int, y: Int) => x+y) ) // (вариант) когда на лету определяем анонимную функцию что определяет тип перегруженной функции...
     println( "sumMeta1 = " + sumMeta1(1,2,(x,y) => x+y) )            // вариант-1 когда Scala-компилятор сам умеет находить тип по перечисленным параметрам...
     println( "sumMeta1 = " + sumMeta1(1,2,_+_) )                     // вариант-2 когда Scala-компилятор сам умеет находить параметры и тип по этим параметрам...
+
+
+    println( func(10) )
+    println( funcAsObject(10) )
+    println( funcAsObject.apply(10) )
+    println( funcAsValue.apply(10) ) // func.apply(10) – compilation error
+
+    println(funcAsValue + " result: " + funcAsValue(10)) // <function1> result: 10
+    println(myfunc + " result: " + myfunc(10))           // My func! result: 100
   }
 
   ///////////////////////////////////// Функции ////////////////////////////////////
@@ -78,4 +102,17 @@ object Source2 {
   ///////////////////////////////////// Анонимные функции ////////////////////////////////////
   val sumFunc = (x: Int, y: Int) => x+y                              // (обычный способ) определяем аннонимную переменую для конкретного типа функции...
   def sumMeta1(x: Int, y: Int, sumF: ((Int,Int) => Int)) = sumF(x,y) // (обычный способ) вынесли вызов типа перегруженной функции...
+
+  ///////////////////////////////////// Функция как объект ////////////////////////////////////
+  def func(x: Int) = x               // это будет транслироваться как метод в Java
+  val funcAsObject: Function[Int, Int] = func
+  val funcAsValue: Int => Int = func // это будет поле типа Function[Int, Int]
+  val funcAsValue2 = func _          // без _ непонятно - присвоение или вызов?
+
+  class MyFunc extends Function[Int, Int] {
+    override def toString() = "My Func!"
+    def apply(x: Int) = x*x
+  }
+
+  val myfunc: Int => Int = new MyFunc
 }
